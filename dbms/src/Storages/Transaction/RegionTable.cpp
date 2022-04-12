@@ -475,6 +475,12 @@ void RegionTable::extendRegionRange(const RegionID region_id, const RegionRangeK
             internal_region.range_in_table.second = *new_handle_range.second > *internal_region.range_in_table.second
                 ? new_handle_range.second
                 : internal_region.range_in_table.second;
+            LOG_FMT_INFO(log, "table {}, internal region {} range change from {} {} to {} {}",
+                         table_id, region_id,
+                         *internal_region.range_in_table.first,
+                         *internal_region.range_in_table.second,
+                         *new_handle_range.first,
+                         *new_handle_range.second);
         }
     }
     else
